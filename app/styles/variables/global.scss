@@ -1,5 +1,13 @@
 :root {
-    --font-family-main: consolas, "Times New Roman", serif;
+  //Шрифты
+  --font-family: "Quicksand", sans-serif;
+  --second-family: "Rubik", sans-serif;
+  --third-family: "Roboto", sans-serif;
+  --font3: "Pacifico", sans-serif;
+  --font4: "Inter", sans-serif;
+  --font5: "Segoe UI", sans-serif;
+  --font6: "Spirax", sans-serif;
+  //Размеры
     --font-size-m: 16px;
     --font-line-m: 24px;
     --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
@@ -9,17 +17,10 @@
     --font-size-xl: 32px;
     --font-line-xl: 40px;
     --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
-
-    // Размеры
-    --navbar-height: 50px;
-    --sidebar-width: 300px;
-    --sidebar-width-collapsed: 80px;
-
-    // Z-индексы
-    --modal-z-index: 10;
-
     // Цвета
-    --overlay-color: rgba(0 0 0 / 60%);
-    --red-light: #f00;
-    --red-dark: #ce0505;
+  --primary-text-color: #fff;
+  --primary-color: #ff8e25;
+  --light-color: #f9913e;
+  --dark-color: #000;
+
 }

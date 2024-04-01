@@ -1,10 +1,12 @@
 'use client'
-import {Inter} from "next/font/google";
+import {Quicksand} from "next/font/google";
 import './styles/index.scss'
 import {classNames} from "@/app/lib/classNames/classNames";
-import {Theme, ThemeProvider, useTheme} from "@/app/providers/ThemeProvider";
+import {Header} from "@/app/components/Header/Header";
+import Container from "@/app/components/Container/Container";
+import React, {ReactNode} from "react";
 
-const inter = Inter({ subsets: ["latin"] });
+const quicksand = Quicksand({ subsets: ["latin"] });
 
 // export const metadata: Metadata = {
 //     title: "Create Next App",
@@ -14,18 +16,18 @@ const inter = Inter({ subsets: ["latin"] });
 export default function RootLayout({
     children,
 }: Readonly<{
-  children: React.ReactNode;
+      children: ReactNode;
 }>) {
 
-    const theme = Theme.ORANGE;
 
     return (
         <html lang="ru">
-            <ThemeProvider>
-                <body className={classNames(inter.className, {}, ['app', theme])}>
+            <body className={classNames(quicksand.className, {}, ['app'])}>
+                <Header />
+                <Container>
                     {children}
-                </body>
-            </ThemeProvider>
+                </Container>
+            </body>
         </html>
     );
 }

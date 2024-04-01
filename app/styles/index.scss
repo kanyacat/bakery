@@ -1,12 +1,19 @@
 @import "reset";
 @import "variables/global";
-@import "themes/normal";
-@import "themes/dark";
-@import "themes/orange";
 
 .app {
-    font: var(--font-m);
-    color: var(--primary-color);
+    color: var(--primary-text-color);
     min-height: 100vh;
-    background: var(--bg-color);
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+
+    outline: none;
+
+    &:hover, &:active, &:focus {
+        border-bottom: 2px solid #fff;
+    }
 }

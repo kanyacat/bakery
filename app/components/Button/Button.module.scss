@@ -1,0 +1,29 @@
+.Button {
+    cursor: pointer;
+    color: var(--primary-text-color);
+    border-radius: 26px;
+    padding: 10px 26px;
+    background: var(--primary-color);
+    border: none;
+    display: flex;
+
+    font-weight: 600;
+
+    span {
+        margin-left: 10px;
+    }
+}
+
+.light {
+    background: var(--light-color);
+}
+
+.black {
+    background: var(--dark-color);
+}
+
+.disabled {
+    opacity: 0.5;
+}
+
+

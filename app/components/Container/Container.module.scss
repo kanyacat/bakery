@@ -1,0 +1,15 @@
+@import 'app/styles/mixins/breakpoint';
+
+.root {
+	margin: 0 auto;
+	padding: 0 50px;
+	max-width: 1440px;
+
+	@include small-tablet {
+		padding: 0 40px;
+	}
+
+	@include mobile {
+		padding: 0 20px;
+	}
+}

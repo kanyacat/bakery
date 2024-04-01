@@ -1,0 +1,27 @@
+.root {
+  background: rgba(255, 122, 0, 0.75);
+  padding: 15px 0;
+}
+
+.items {
+  display: grid;
+  grid-template-columns: 2fr auto auto auto auto 3fr auto auto;
+  gap: 35px;
+  align-items: center;
+  justify-content: center;
+}
+
+.item {
+  position: relative;
+  font-size: 14px;
+
+  &:last-child {
+    margin-left: 20px;
+  }
+}
+
+.icon {
+  position: absolute;
+  top: -2px;
+  left: 55px;
+}
