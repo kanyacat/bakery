@@ -16,11 +16,28 @@ export default function Home() {
 
             <h2 className={cls.title}>{t('Наши товары')}</h2>
             <div className={cls.cards}>
-                <Card className={cls.l} size={CardSizes.LARGE}/>
-                <Card className={cls.m}  size={CardSizes.MIDDLE} />
-                <Card className={cls.b} size={CardSizes.BIG}/>
-                <Card className={cls.mm} size={CardSizes.MIDDLE} />
-                <Card className={cls.ll} size={CardSizes.LARGE}/>
+                <Card className={cls.l} size={CardSizes.LARGE}
+                    background={'https://i.ibb.co/M9bQD88/Rectangle-31.png'}
+                    title={'Вкуснейшие булочки'}
+                    text={'Для изготовления использованы натуральные продукты без консервантов, ' +
+                        'а главным ингредиентом является любовь. '}
+                    btn={'В корзину'}/>
+                <Card className={cls.m}  size={CardSizes.MIDDLE}
+                    background={'https://i.ibb.co/mJZWLyJ/002A.png'}/>
+                <Card className={cls.b} size={CardSizes.BIG}
+                    background={'https://i.ibb.co/19gQYvD/Rectangle-31-1.png'}
+                    title={'Нежнейшие кексы'}
+                    text={'Для изготовления использованы натуральные продукты без консервантов, ' +
+                          'а главным ингредиентом является любовь. '}
+                    btn={'В корзину'}/>
+                <Card className={cls.mm} size={CardSizes.MIDDLE}
+                    background={'https://i.ibb.co/f0hXMQd/004A.png'}/>
+                <Card className={cls.ll} size={CardSizes.LARGE}
+                    background={'https://i.ibb.co/Qf2677X/Rectangle-32.png'}
+                    title={'Хрустящее печенье'}
+                    text={'Для изготовления использованы натуральные продукты без консервантов, ' +
+                          'а главным ингредиентом является любовь. '}
+                    btn={'В корзину'}/>
             </div>
         </div>)
 }

@@ -43,7 +43,7 @@ export const Button = (props: ButtonProps) => {
             {...otherProps}
         >
             {children}
-            <span>{icon}</span>
+            {icon ? <span>{icon}</span> : ''}
         </button>
     );
 };
