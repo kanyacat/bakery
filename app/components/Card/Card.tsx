@@ -31,7 +31,7 @@ export const Card = ({className, size, background, title, text, btn}: CardProps)
 
     return (
         <div className={classNames(cls.root, mods, [className])}
-            style={{background:`url(${background})`}}>
+            style={{background:`url(${background}) no-repeat`}}>
             <strong className={cls.title}>{title}</strong>
             <p className={classNames(roboto.className, mods, [cls.text, className])}>
                 {text}

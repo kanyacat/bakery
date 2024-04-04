@@ -4,6 +4,7 @@ import {classNames} from "@/app/lib/classNames/classNames";
 import {useTranslation} from "react-i18next";
 import cls from './page.module.scss'
 import {Card, CardSizes} from "@/app/components/Card/Card";
+import {MiniCard} from "@/app/components/MiniCard/MiniCard";
 
 export default function Home() {
     const {t} = useTranslation();
@@ -38,6 +39,28 @@ export default function Home() {
                     text={'Для изготовления использованы натуральные продукты без консервантов, ' +
                           'а главным ингредиентом является любовь. '}
                     btn={'В корзину'}/>
+            </div>
+
+            <h2 className={cls.title}>{t('Выбор покупателей')}</h2>
+            <div className={cls.minicards}>
+                <MiniCard
+                    img={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
+                    name={'Карамельный пончик'}/>
+                <MiniCard
+                    img={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
+                    name={'Карамельный пончик'}/>
+                <MiniCard
+                    img={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
+                    name={'Карамельный пончик'}/>
+                <MiniCard
+                    img={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
+                    name={'Карамельный пончик'}/>
+                <MiniCard
+                    img={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
+                    name={'Карамельный пончик'}/>
+                <MiniCard
+                    img={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
+                    name={'Карамельный пончик'}/>
             </div>
         </div>)
 }

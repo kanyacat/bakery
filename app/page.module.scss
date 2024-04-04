@@ -29,10 +29,12 @@
   text-align: center;
   color: var(--dark-color);
 
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .cards {
+  margin-bottom: 25px;
+
     display: grid;
     gap: 20px;
 
@@ -59,4 +61,13 @@
   .mm {
     grid-area: MM;
   }
+}
+
+.minicards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+
+  gap: 50px 0;
 }
