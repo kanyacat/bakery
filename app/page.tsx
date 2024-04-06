@@ -5,6 +5,7 @@ import {useTranslation} from "react-i18next";
 import cls from './page.module.scss'
 import {Card, CardSizes} from "@/app/components/Card/Card";
 import {MiniCard} from "@/app/components/MiniCard/MiniCard";
+import {NewsCard} from "@/app/components/NewsCard/NewsCard";
 
 export default function Home() {
     const {t} = useTranslation();
@@ -61,6 +62,29 @@ export default function Home() {
                 <MiniCard
                     img={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
                     name={'Карамельный пончик'}/>
+            </div>
+
+            <h2 className={cls.title}>{t('Новости')}</h2>
+
+            <div className={cls.minicards}>
+                <NewsCard
+                    img={'https://i.ibb.co/d6zrGzy/Rectangle-9.png'}
+                    date={'March 2023'}
+                    text={'interior inspiration\n' +
+                    'hidden to in the middle of....'}
+                />
+                <NewsCard
+                    img={'https://i.ibb.co/d6zrGzy/Rectangle-9.png'}
+                    date={'March 2023'}
+                    text={'interior inspiration\n' +
+                        'hidden to in the middle of....'}
+                />
+                <NewsCard
+                    img={'https://i.ibb.co/d6zrGzy/Rectangle-9.png'}
+                    date={'March 2023'}
+                    text={'interior inspiration\n' +
+                        'hidden to in the middle of....'}
+                />
             </div>
         </div>)
 }
