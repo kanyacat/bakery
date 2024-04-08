@@ -18,72 +18,111 @@ export default function Home() {
 
             <h2 className={cls.title}>{t('Наши товары')}</h2>
             <div className={cls.cards}>
-                <Card className={cls.l} size={CardSizes.LARGE}
+                <Card className={cls.l}
                     background={'https://i.ibb.co/M9bQD88/Rectangle-31.png'}
                     title={'Вкуснейшие булочки'}
                     text={'Для изготовления использованы натуральные продукты без консервантов, ' +
                         'а главным ингредиентом является любовь. '}
-                    btn={'В корзину'}/>
-                <Card className={cls.m}  size={CardSizes.MIDDLE}
-                    background={'https://i.ibb.co/mJZWLyJ/002A.png'}/>
-                <Card className={cls.b} size={CardSizes.BIG}
+                    btn={'В корзину'}
+                    width={'477'}
+                    height={'285'}/>
+                <Card className={cls.m}
+                    background={'https://i.ibb.co/mJZWLyJ/002A.png'}
+                    width={'337'}
+                    height={'285'}
+                />
+                <Card className={cls.b}
                     background={'https://i.ibb.co/19gQYvD/Rectangle-31-1.png'}
                     title={'Нежнейшие кексы'}
                     text={'Для изготовления использованы натуральные продукты без консервантов, ' +
                           'а главным ингредиентом является любовь. '}
-                    btn={'В корзину'}/>
-                <Card className={cls.mm} size={CardSizes.MIDDLE}
-                    background={'https://i.ibb.co/f0hXMQd/004A.png'}/>
-                <Card className={cls.ll} size={CardSizes.LARGE}
+                    btn={'В корзину'}
+                    width={'331'}
+                    height={'607'}
+                />
+                <Card className={cls.mm}
+                    background={'https://i.ibb.co/f0hXMQd/004A.png'}
+                    width={'337'}
+                    height={'285'}
+                />
+                <Card className={cls.ll}
                     background={'https://i.ibb.co/Qf2677X/Rectangle-32.png'}
                     title={'Хрустящее печенье'}
                     text={'Для изготовления использованы натуральные продукты без консервантов, ' +
                           'а главным ингредиентом является любовь. '}
-                    btn={'В корзину'}/>
+                    btn={'В корзину'}
+                    width={'477'}
+                    height={'285'}/>
             </div>
 
             <h2 className={cls.title}>{t('Выбор покупателей')}</h2>
             <div className={cls.minicards}>
-                <MiniCard
-                    img={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
-                    name={'Карамельный пончик'}/>
-                <MiniCard
-                    img={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
-                    name={'Карамельный пончик'}/>
-                <MiniCard
-                    img={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
-                    name={'Карамельный пончик'}/>
-                <MiniCard
-                    img={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
-                    name={'Карамельный пончик'}/>
-                <MiniCard
-                    img={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
-                    name={'Карамельный пончик'}/>
-                <MiniCard
-                    img={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
-                    name={'Карамельный пончик'}/>
+                <Card
+                    background={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
+                    name={'Карамельный пончик'}
+                    width={'303'}
+                    height={'303'}
+                />
+                <Card
+                    background={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
+                    name={'Карамельный пончик'}
+                    width={'303'}
+                    height={'303'}
+                />
+                <Card
+                    background={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
+                    name={'Карамельный пончик'}
+                    width={'303'}
+                    height={'303'}
+                />
+                <Card
+                    background={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
+                    name={'Карамельный пончик'}
+                    width={'303'}
+                    height={'303'}
+                />
+                <Card
+                    background={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
+                    name={'Карамельный пончик'}
+                    width={'303'}
+                    height={'303'}
+                />
+                <Card
+                    background={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
+                    name={'Карамельный пончик'}
+                    width={'303'}
+                    height={'303'}
+                />
             </div>
-
             <h2 className={cls.title}>{t('Новости')}</h2>
 
             <div className={cls.minicards}>
-                <NewsCard
-                    img={'https://i.ibb.co/d6zrGzy/Rectangle-9.png'}
+                <Card
+                    background={'https://i.ibb.co/d6zrGzy/Rectangle-9.png'}
                     date={'March 2023'}
                     text={'interior inspiration\n' +
                     'hidden to in the middle of....'}
+                    width={'320'}
+                    height={'320'}
+                    news={true}
                 />
-                <NewsCard
-                    img={'https://i.ibb.co/d6zrGzy/Rectangle-9.png'}
+                <Card
+                    background={'https://i.ibb.co/d6zrGzy/Rectangle-9.png'}
                     date={'March 2023'}
                     text={'interior inspiration\n' +
                         'hidden to in the middle of....'}
+                    width={'320'}
+                    height={'320'}
+                    news={true}
                 />
-                <NewsCard
-                    img={'https://i.ibb.co/d6zrGzy/Rectangle-9.png'}
+                <Card
+                    background={'https://i.ibb.co/d6zrGzy/Rectangle-9.png'}
                     date={'March 2023'}
                     text={'interior inspiration\n' +
                         'hidden to in the middle of....'}
+                    width={'320'}
+                    height={'320'}
+                    news={true}
                 />
             </div>
         </div>)
