@@ -3,12 +3,43 @@
 import {classNames} from "@/app/lib/classNames/classNames";
 import {useTranslation} from "react-i18next";
 import cls from './page.module.scss'
-import {Card, CardSizes} from "@/app/components/Card/Card";
-import {MiniCard} from "@/app/components/MiniCard/MiniCard";
-import {NewsCard} from "@/app/components/NewsCard/NewsCard";
+import {Card} from "@/app/components/Card/Card";
+import Input from "@/app/components/Input/Input";
+import {useState} from "react";
+import {useForm} from "react-hook-form";
+import {Button} from "@/app/components/Button/Button";
+
+
+interface IFormData {
+    name?: string
+    phone?: number
+    comment?: string
+}
 
 export default function Home() {
     const {t} = useTranslation();
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+        reset
+    } = useForm()
+
+    const [isSuccess, setIsSuccess] = useState<boolean>(false)
+    const [error, setError] = useState<string>('')
+
+    const onSubmit = (formData: IFormData) => {
+        try {
+            if (formData) {
+                setIsSuccess(true)
+                reset()
+            }
+        } catch (err: any) {
+            setError(`${err.message}`)
+        }
+    }
+
 
     return (
         <div className={classNames(cls.root, {}, [])}>
@@ -54,7 +85,6 @@ export default function Home() {
                     width={'477'}
                     height={'285'}/>
             </div>
-
             <h2 className={cls.title}>{t('Выбор покупателей')}</h2>
             <div className={cls.minicards}>
                 <Card
@@ -95,7 +125,6 @@ export default function Home() {
                 />
             </div>
             <h2 className={cls.title}>{t('Новости')}</h2>
-
             <div className={cls.minicards}>
                 <Card
                     background={'https://i.ibb.co/d6zrGzy/Rectangle-9.png'}
@@ -124,6 +153,41 @@ export default function Home() {
                     height={'320'}
                     news={true}
                 />
+            </div>
+            <div className={cls.feedback}>
+                <div className={cls.content}>
+                    <h3 className={cls.feedbackTitle}>Оставить отзыв или связаться с нами</h3>
+                    <form className={cls.form} onSubmit={handleSubmit(onSubmit)}>
+                        <Input
+                            type='text'
+                            placeholder={'Ваше имя'}
+                            {...register('name', {
+                                required: { value: true, message: 'Заполните имя' }
+                            })}
+                            errorMessage={errors?.name?.message?.toString()}
+                            className={cls.input}
+                        />
+                        <Input
+                            type='email'
+                            placeholder={'Ваша электронная почта'}
+                            {...register('email', {
+                                required: { value: true, message: 'Заполните электронную почту' }
+                            })}
+                            errorMessage={errors?.email?.message?.toString()}
+                            className={cls.input}
+                        />
+                        <Input
+                            type='text'
+                            placeholder={'Ваш комментарий'}
+                            {...register('comment', {
+                                required: { value: true, message: 'Заполните комментарий' }
+                            })}
+                            errorMessage={errors?.comment?.message?.toString()}
+                            className={cls.input}
+                        />
+                        <Button className={cls.btn} type={'submit'}>Отправить</Button>
+                    </form>
+                </div>
             </div>
         </div>)
 }

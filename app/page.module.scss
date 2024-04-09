@@ -6,7 +6,7 @@
 
   position: relative;
   margin: 50px 0;
-  background: url('https://avatars.dzeninfra.ru/get-zen_doc/1892973/pub_61858a455502ac58775af2fb_61858af867ff7f59ce34c11c/scale_1200') center no-repeat;
+  background: url('https://sun9-32.userapi.com/impf/c851324/v851324467/1ea09d/s5OYRLRu3Og.jpg?size=1161x800&quality=96&sign=c3d2ed97ae6494df4e3d9e4c7cbb4733&type=album') center no-repeat;
   height: 700px;
   width: 100%;
   border-radius: 10px;
@@ -68,4 +68,46 @@
   justify-items: center;
 
   gap: 50px 0;
+
+  margin-bottom: 65px;
+}
+
+.feedback {
+  height: 560px;
+  width: 100%;
+
+  background: url('https://i.ibb.co/mDKYvnD/text.jpg') no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+
+
+  &Title {
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 110%;
+    text-align: center;
+  }
+}
+
+.content {
+  max-width: 924px;
+}
+
+.form {
+
+  margin: 20px auto;
+  text-align: center;
+}
+
+.input {
+  margin-bottom: 15px;
+}
+
+.btn {
+  margin: 0 auto;
+  text-align: center;
 }

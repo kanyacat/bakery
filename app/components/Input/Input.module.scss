@@ -1,0 +1,33 @@
+.input {
+	&Wrapper {
+		position: relative;
+		input {
+			margin-bottom: 20px;
+			max-width: 442px;
+			width: 100%;
+
+			border-radius: 30px;
+			padding: 20px;
+
+			border: none;
+
+			&:focus {
+				outline: 2px solid var(--primary-color) ;
+			}
+		}
+	}
+}
+
+
+
+.error {
+	outline: 2px solid var(--error-color);
+}
+
+.errorMessage {
+	position: absolute;
+	color: var(--error-color);
+	top: -25px;
+	left: 28%;
+	z-index: 1;
+}
