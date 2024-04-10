@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Page = () => (
-    <div>kva</div>
+    <div></div>
 );
 
 export default Page;

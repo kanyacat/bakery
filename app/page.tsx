@@ -41,6 +41,7 @@ export default function Home() {
     }
 
 
+    // @ts-ignore
     return (
         <div className={classNames(cls.root, {}, [])}>
             <div className={classNames(cls.main, {}, [])}>
@@ -51,10 +52,10 @@ export default function Home() {
             <div className={cls.cards}>
                 <Card className={cls.l}
                     background={'https://i.ibb.co/M9bQD88/Rectangle-31.png'}
-                    title={'Вкуснейшие булочки'}
-                    text={'Для изготовления использованы натуральные продукты без консервантов, ' +
-                        'а главным ингредиентом является любовь. '}
-                    btn={'В корзину'}
+                    title={t('Вкуснейшие булочки')}
+                    text={t('Для изготовления использованы натуральные продукты без консервантов, ' +
+                        'а главным ингредиентом является любовь.')}
+                    btn={t('В корзину')}
                     width={'477'}
                     height={'285'}/>
                 <Card className={cls.m}
@@ -64,10 +65,10 @@ export default function Home() {
                 />
                 <Card className={cls.b}
                     background={'https://i.ibb.co/19gQYvD/Rectangle-31-1.png'}
-                    title={'Нежнейшие кексы'}
-                    text={'Для изготовления использованы натуральные продукты без консервантов, ' +
-                          'а главным ингредиентом является любовь. '}
-                    btn={'В корзину'}
+                    title={t('Нежнейшие кексы')}
+                    text={t('Для изготовления использованы натуральные продукты без консервантов, ' +
+                          'а главным ингредиентом является любовь. ')}
+                    btn={t('В корзину')}
                     width={'331'}
                     height={'607'}
                 />
@@ -78,10 +79,10 @@ export default function Home() {
                 />
                 <Card className={cls.ll}
                     background={'https://i.ibb.co/Qf2677X/Rectangle-32.png'}
-                    title={'Хрустящее печенье'}
-                    text={'Для изготовления использованы натуральные продукты без консервантов, ' +
-                          'а главным ингредиентом является любовь. '}
-                    btn={'В корзину'}
+                    title={t('Хрустящее печенье')}
+                    text={t('Для изготовления использованы натуральные продукты без консервантов, ' +
+                          'а главным ингредиентом является любовь. ')}
+                    btn={t('В корзину')}
                     width={'477'}
                     height={'285'}/>
             </div>
@@ -89,37 +90,37 @@ export default function Home() {
             <div className={cls.minicards}>
                 <Card
                     background={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
-                    name={'Карамельный пончик'}
+                    name={t('Карамельный пончик')}
                     width={'303'}
                     height={'303'}
                 />
                 <Card
                     background={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
-                    name={'Карамельный пончик'}
+                    name={t('Карамельный пончик')}
                     width={'303'}
                     height={'303'}
                 />
                 <Card
                     background={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
-                    name={'Карамельный пончик'}
+                    name={t('Карамельный пончик')}
                     width={'303'}
                     height={'303'}
                 />
                 <Card
                     background={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
-                    name={'Карамельный пончик'}
+                    name={t('Карамельный пончик')}
                     width={'303'}
                     height={'303'}
                 />
                 <Card
                     background={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
-                    name={'Карамельный пончик'}
+                    name={t('Карамельный пончик')}
                     width={'303'}
                     height={'303'}
                 />
                 <Card
                     background={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
-                    name={'Карамельный пончик'}
+                    name={t('Карамельный пончик')}
                     width={'303'}
                     height={'303'}
                 />
@@ -128,27 +129,27 @@ export default function Home() {
             <div className={cls.minicards}>
                 <Card
                     background={'https://i.ibb.co/d6zrGzy/Rectangle-9.png'}
-                    date={'March 2023'}
-                    text={'interior inspiration\n' +
-                    'hidden to in the middle of....'}
+                    date={t('Март 2023')}
+                    text={t('interior inspiration\n') +
+                    t('hidden to in the middle of....')}
                     width={'320'}
                     height={'320'}
                     news={true}
                 />
                 <Card
                     background={'https://i.ibb.co/d6zrGzy/Rectangle-9.png'}
-                    date={'March 2023'}
-                    text={'interior inspiration\n' +
-                        'hidden to in the middle of....'}
+                    date={t('Март 2023')}
+                    text={t('interior inspiration\n') +
+                        t('hidden to in the middle of....')}
                     width={'320'}
                     height={'320'}
                     news={true}
                 />
                 <Card
                     background={'https://i.ibb.co/d6zrGzy/Rectangle-9.png'}
-                    date={'March 2023'}
-                    text={'interior inspiration\n' +
-                        'hidden to in the middle of....'}
+                    date={t('Март 2023')}
+                    text={t('interior inspiration\n') +
+                        t('hidden to in the middle of....')}
                     width={'320'}
                     height={'320'}
                     news={true}
@@ -156,36 +157,36 @@ export default function Home() {
             </div>
             <div className={cls.feedback}>
                 <div className={cls.content}>
-                    <h3 className={cls.feedbackTitle}>Оставить отзыв или связаться с нами</h3>
+                    <h3 className={cls.feedbackTitle}>{t('Оставить отзыв или связаться с нами')}</h3>
                     <form className={cls.form} onSubmit={handleSubmit(onSubmit)}>
                         <Input
                             type='text'
-                            placeholder={'Ваше имя'}
+                            placeholder={t('Ваше имя')}
                             {...register('name', {
-                                required: { value: true, message: 'Заполните имя' }
+                                required: { value: true, message: t('Заполните имя') }
                             })}
                             errorMessage={errors?.name?.message?.toString()}
                             className={cls.input}
                         />
                         <Input
                             type='email'
-                            placeholder={'Ваша электронная почта'}
+                            placeholder={t('Ваша электронная почта')}
                             {...register('email', {
-                                required: { value: true, message: 'Заполните электронную почту' }
+                                required: { value: true, message: t('Заполните электронную почту') }
                             })}
                             errorMessage={errors?.email?.message?.toString()}
                             className={cls.input}
                         />
                         <Input
                             type='text'
-                            placeholder={'Ваш комментарий'}
+                            placeholder={t('Ваш комментарий')}
                             {...register('comment', {
-                                required: { value: true, message: 'Заполните комментарий' }
+                                required: { value: true, message: t('Заполните комментарий') }
                             })}
                             errorMessage={errors?.comment?.message?.toString()}
                             className={cls.input}
                         />
-                        <Button className={cls.btn} type={'submit'}>Отправить</Button>
+                        <Button className={cls.btn} type={'submit'}>{t('Отправить')}</Button>
                     </form>
                 </div>
             </div>
