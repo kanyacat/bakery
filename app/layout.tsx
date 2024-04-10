@@ -5,6 +5,7 @@ import {classNames} from "@/app/lib/classNames/classNames";
 import {Header} from "@/app/components/Header/Header";
 import Container from "@/app/components/Container/Container";
 import React, {ReactNode} from "react";
+import {Footer} from "@/app/components/Footer/Footer";
 
 const quicksand = Quicksand({ subsets: ["latin"] });
 
@@ -27,6 +28,7 @@ export default function RootLayout({
                 <Container>
                     {children}
                 </Container>
+                <Footer />
             </body>
         </html>
     );
