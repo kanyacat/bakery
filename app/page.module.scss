@@ -1,3 +1,5 @@
+@import 'styles/mixins/breakpoint';
+
 .root {
   margin-bottom: 30px;
 }
@@ -36,6 +38,9 @@
     display: grid;
     gap: 20px;
 
+  align-items: center;
+  justify-items: center;
+
     grid-template-areas:
     "L L M B B "
     "MM LL LL B B ";
@@ -59,17 +64,36 @@
   .mm {
     grid-area: MM;
   }
+  @include desktop {
+    grid-template-areas:
+    "L B"
+    "LL B";
+
+    .m, .mm {
+      display: none;
+    }
+  }
 }
 
 .minicards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
   justify-items: center;
 
-  gap: 50px 0;
+  gap: 50px 10px;
 
   margin-bottom: 65px;
+
+  @include desktop {
+    grid-template-areas:
+    "L B"
+    "LL B";
+
+    .m, .mm {
+      display: none;
+    }
+  }
 }
 
 .feedback {
@@ -98,7 +122,6 @@
 }
 
 .form {
-
   margin: 20px auto;
   text-align: center;
 }
