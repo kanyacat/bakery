@@ -20,7 +20,7 @@ export const Header = () => {
                         <Link href={'/'}>{t('Хлебная лавка')}</Link>
                     </nav>
                     <nav className={cls.item}>
-                        <Link href={'/'}>{t('Главная страница')}</Link>
+                        <Link href={'/'}>{t('Главная')}</Link>
                     </nav>
                     <nav className={cls.item}>
                         <Link href={'/'}>{t('О нас')}</Link>

@@ -24,6 +24,10 @@
     line-height: 152%;
     text-align: right;
 
+    @include small-tablet {
+      font-size: 50px;
+      width: 240px;
+    }
   }
 }
 
@@ -64,6 +68,7 @@
   .mm {
     grid-area: MM;
   }
+
   @include desktop {
     grid-template-areas:
     "L B"
@@ -73,6 +78,28 @@
       display: none;
     }
   }
+
+  @include tablet {
+    grid-template-areas:
+    "M B"
+    "MM B";
+
+    .m, .mm {
+      display: block;
+    }
+
+    .l, .ll {
+      display: none;
+    }
+  }
+
+  @include small-tablet {
+    grid-template-areas:
+    "B"
+    "M"
+    "MM";
+  }
+
 }
 
 .minicards {
@@ -86,13 +113,11 @@
   margin-bottom: 65px;
 
   @include desktop {
-    grid-template-areas:
-    "L B"
-    "LL B";
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-    .m, .mm {
-      display: none;
-    }
+  @include small-tablet {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
@@ -114,6 +139,10 @@
     font-size: 60px;
     line-height: 110%;
     text-align: center;
+
+    @include small-tablet {
+      font-size: 45px;
+    }
   }
 }
 
@@ -124,6 +153,8 @@
 .form {
   margin: 20px auto;
   text-align: center;
+
+  padding: 0 20px;
 }
 
 .input {

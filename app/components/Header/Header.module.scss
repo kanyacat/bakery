@@ -1,3 +1,6 @@
+@import 'app/styles/mixins/breakpoint';
+
+
 .root {
   background: var(--header-color);
   padding: 15px 0;
@@ -9,6 +12,14 @@
   gap: 35px;
   align-items: center;
   justify-content: center;
+
+  @include tablet {
+    grid-template-columns: 2fr auto auto auto auto auto;
+  }
+
+  @include mobile {
+    grid-template-columns: auto auto auto auto;
+  }
 }
 
 .item {
@@ -17,6 +28,19 @@
 
   &:last-child {
     margin-left: 20px;
+  }
+
+  @include tablet {
+    &:last-child, &:nth-child(7) {
+      display: none;
+      margin-left: 0;
+    }
+  }
+
+  @include mobile {
+    &:first-child, &:nth-child(6) {
+      display: none;
+    }
   }
 }
 

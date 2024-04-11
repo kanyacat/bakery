@@ -36,7 +36,6 @@ export const Footer = ({className}: FooterProps) => {
                     <nav><Link href={'/'}>{t('Лицензии и соглашения')}</Link></nav>
                     <nav><Link href={'/'}>{t('Технология')}</Link></nav>
                 </div>
-                <Button theme={ButtonTheme.LIGHT} className={cls.btn}>{t('Подписаться')}</Button>
             </Container>
         </div>
     )
