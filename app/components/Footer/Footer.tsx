@@ -25,10 +25,10 @@ export const Footer = ({className}: FooterProps) => {
                 </div>
                 <div className={cls.section}>
                     <h4 className={cls.title}>{t('О нас')}</h4>
-                    <nav><Link href={'/'}>{t('Наша цель')}</Link></nav>
-                    <nav><Link href={'/'}>{t('Наша история')}</Link></nav>
-                    <nav><Link href={'/'}>{t('Наша культура')}</Link></nav>
-                    <nav><Link href={'/'}>{t('Команда')}</Link></nav>
+                    <nav><Link href={'/about_us'}>{t('Наша цель')}</Link></nav>
+                    <nav><Link href={'/about_us'}>{t('Наша история')}</Link></nav>
+                    <nav><Link href={'/about_us'}>{t('Наша культура')}</Link></nav>
+                    <nav><Link href={'/about_us'}>{t('Команда')}</Link></nav>
                 </div>
                 <div className={cls.section}>
                     <h4 className={cls.title}>{t('Компания')}</h4>

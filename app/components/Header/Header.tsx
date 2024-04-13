@@ -10,7 +10,7 @@ import {Button, ButtonTheme} from "@/app/components/Button/Button";
 
 
 export const Header = () => {
-    const {t} = useTranslation();
+    const {t} = useTranslation('header');
 
     return (
         <header className={classNames(cls.root, {}, [])}>
@@ -23,7 +23,7 @@ export const Header = () => {
                         <Link href={'/'}>{t('Главная')}</Link>
                     </nav>
                     <nav className={cls.item}>
-                        <Link href={'/'}>{t('О нас')}</Link>
+                        <Link href={'/about_us'}>{t('О нас')}</Link>
                     </nav>
                     <nav className={cls.item}>
                         <Link href={'/'}>{t('Каталог')}</Link>
