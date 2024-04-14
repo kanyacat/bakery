@@ -14,8 +14,7 @@ export const Sidebar = ({className}: SidebarProps) => {
 
     return (
         <div className={classNames(cls.root, {}, [className])}>
-            <h2 className={cls.title}>{t('Каталог')}</h2>
-            <ul>
+            <ul className={cls.list}>
                 <li><Button>{t('Кексы')}</Button></li>
                 <li><Button>{t('Булочки')}</Button></li>
                 <li><Button>{t('Печенье')}</Button></li>

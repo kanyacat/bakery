@@ -1,3 +1,6 @@
+@import 'app/styles/mixins/breakpoint';
+
+
 .root {
   color: var(--dark-color);
 
@@ -42,5 +45,27 @@
     justify-items: center;
 
     gap: 50px 10px;
+
+    @include desktop {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include small-tablet {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  @include tablet {
+    grid-template-areas:
+    "top"
+    "sidebar"
+    "bottom";
+
+    .sidebar {
+      grid-area: sidebar;
+      width: 100%;
+      overflow: scroll;
+
+    }
   }
 }
