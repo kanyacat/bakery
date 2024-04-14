@@ -1,0 +1,167 @@
+@import 'app/styles/mixins/breakpoint';
+
+.root {
+  margin-bottom: 30px;
+}
+
+.main {
+
+  position: relative;
+  margin: 50px 0;
+  background: url('https://sun9-32.userapi.com/impf/c851324/v851324467/1ea09d/s5OYRLRu3Og.jpg?size=1161x800&quality=96&sign=c3d2ed97ae6494df4e3d9e4c7cbb4733&type=album') center no-repeat;
+  height: 700px;
+  width: 100%;
+  border-radius: 10px;
+
+  h1 {
+    width: 340px;
+    position: absolute;
+    bottom: 30%;
+    right: 10%;
+
+    font-weight: 600;
+    font-size: 62px;
+    line-height: 152%;
+    text-align: right;
+
+    @include small-tablet {
+      font-size: 50px;
+      width: 240px;
+    }
+  }
+}
+
+.title {
+  text-align: center;
+  color: var(--dark-color);
+
+  margin: 30px 0;
+}
+
+.cards {
+  display: grid;
+  gap: 20px;
+
+  align-items: center;
+  justify-items: center;
+
+  grid-template-areas:
+    "L L M B B "
+    "MM LL LL B B ";
+
+  .b {
+    grid-area: B;
+  }
+
+  .l {
+    grid-area: L;
+  }
+
+  .m {
+    grid-area: M;
+  }
+
+  .ll {
+    grid-area: LL;
+  }
+
+  .mm {
+    grid-area: MM;
+  }
+
+  @include desktop {
+    grid-template-areas:
+    "L B"
+    "LL B";
+
+    .m, .mm {
+      display: none;
+    }
+  }
+
+  @include tablet {
+    grid-template-areas:
+    "M B"
+    "MM B";
+
+    .m, .mm {
+      display: block;
+    }
+
+    .l, .ll {
+      display: none;
+    }
+  }
+
+  @include small-tablet {
+    grid-template-areas:
+    "B"
+    "M"
+    "MM";
+  }
+
+}
+
+.minicards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-items: center;
+
+  gap: 50px 10px;
+
+  margin-bottom: 65px;
+
+  @include desktop {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include small-tablet {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.feedback {
+  height: 560px;
+  width: 100%;
+
+  background: url('https://i.ibb.co/mDKYvnD/text.jpg') no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+
+
+  &Title {
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 110%;
+    text-align: center;
+
+    @include small-tablet {
+      font-size: 45px;
+    }
+  }
+}
+
+.content {
+  max-width: 924px;
+}
+
+.form {
+  margin: 20px auto;
+  text-align: center;
+
+  padding: 0 20px;
+}
+
+.input {
+  margin-bottom: 15px;
+}
+
+.btn {
+  margin: 0 auto;
+  text-align: center;
+}

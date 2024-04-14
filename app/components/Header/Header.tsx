@@ -26,7 +26,7 @@ export const Header = () => {
                         <Link href={'/about_us'}>{t('О нас')}</Link>
                     </nav>
                     <nav className={cls.item}>
-                        <Link href={'/'}>{t('Каталог')}</Link>
+                        <Link href={'/catalogue'}>{t('Каталог')}</Link>
                     </nav>
                     <nav className={cls.item}>
                         <Link href={'/'}>{t('Новости')}</Link>

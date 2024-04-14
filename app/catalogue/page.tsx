@@ -1,16 +1,14 @@
-import AboutUs from "@/app/pages/AboutUs/AboutUs";
+import React from 'react';
+import {Catalogue} from "@/app/pages/Catalogue/Catalogue";
 import {Metadata} from "next";
 
-
 export const metadata: Metadata = {
-    title: "Хлебная лавка — О нас",
+    title: "Хлебная лавка — Каталог",
     description: "Хлебная лавка - сеть минипекарен в Твери.",
 };
 
-
-const Page = () => {
-
-    return (<AboutUs />)
-};
+const Page = () => (
+    <Catalogue />
+);
 
 export default Page;
