@@ -15,12 +15,19 @@
 
 .title {
   margin-bottom: 20px;
+  margin-right: 20px;
 }
 
 .list {
+  padding-bottom: 10px;
+
   @include tablet {
     display: flex;
     justify-content: space-between;
+
+    li {
+      margin-right: 10px;
+    }
   }
 
 }

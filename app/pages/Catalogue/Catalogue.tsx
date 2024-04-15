@@ -6,6 +6,7 @@ import {classNames} from "@/app/lib/classNames/classNames";
 import {Button} from "@/app/components/Button/Button";
 import {Card} from "@/app/components/Card/Card";
 import {Sidebar} from "@/app/components/Sidebar/Sidebar";
+import Link from "next/link";
 
 
 export const Catalogue = () => {
@@ -21,24 +22,30 @@ export const Catalogue = () => {
                     <Button>{t('Сортировать по')}:</Button>
                 </div>
                 <div className={cls.bottom}>
-                    <Card
-                        background={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
-                        name={t('Карамельный пончик')}
-                        width={'303'}
-                        height={'303'}
-                    />
-                    <Card
-                        background={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
-                        name={t('Карамельный пончик')}
-                        width={'303'}
-                        height={'303'}
-                    />
-                    <Card
-                        background={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
-                        name={t('Карамельный пончик')}
-                        width={'303'}
-                        height={'303'}
-                    />
+                    <Link href={'/catalogue/1'}>
+                        <Card
+                            background={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
+                            name={t('Карамельный пончик')}
+                            width={'303'}
+                            height={'303'}
+                        />
+                    </Link>
+                    <Link href={'/catalogue/2'}>
+                        <Card
+                            background={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
+                            name={t('Карамельный пончик')}
+                            width={'303'}
+                            height={'303'}
+                        />
+                    </Link>
+                    <Link href={'/catalogue/3'}>
+                        <Card
+                            background={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
+                            name={t('Карамельный пончик')}
+                            width={'303'}
+                            height={'303'}
+                        />
+                    </Link>
                     <Card
                         background={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
                         name={t('Карамельный пончик')}

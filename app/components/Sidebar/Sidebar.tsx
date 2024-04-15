@@ -15,10 +15,17 @@ export const Sidebar = ({className}: SidebarProps) => {
     return (
         <div className={classNames(cls.root, {}, [className])}>
             <ul className={cls.list}>
+                <h2 className={cls.title}>{t('Категории')}</h2>
                 <li><Button>{t('Кексы')}</Button></li>
                 <li><Button>{t('Булочки')}</Button></li>
                 <li><Button>{t('Печенье')}</Button></li>
                 <li><Button>{t('Пирожные')}</Button></li>
+            </ul>
+            <ul className={cls.list}>
+                <h2 className={cls.title}>{t('Размеры')}</h2>
+                <li><Button>{t('Маленькие')}</Button></li>
+                <li><Button>{t('Средние')}</Button></li>
+                <li><Button>{t('Большие')}</Button></li>
             </ul>
         </div>
     )
