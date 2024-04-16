@@ -1,0 +1,35 @@
+.root {
+  margin: 80px 0;
+  color: var(--dark-color);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 52px;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 44px;
+  color: var(--light-color);
+
+  margin-bottom: 40px;
+}
+
+.description {
+  width: 410px;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  margin-bottom: 15px;
+
+  button {
+    margin-right: 50px;
+  }
+}
