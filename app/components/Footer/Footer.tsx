@@ -18,10 +18,10 @@ export const Footer = ({className}: FooterProps) => {
             <Container className={cls.wrapper}>
                 <div className={cls.section}>
                     <h4 className={cls.title}>{t('Наши товары')}</h4>
-                    <nav><Link href={'/'}>{t('Булочки')}</Link></nav>
-                    <nav><Link href={'/'}>{t('Пирожные')}</Link></nav>
-                    <nav><Link href={'/'}>{t('Кексы')}</Link></nav>
-                    <nav><Link href={'/'}>{t('Печенье')}</Link></nav>
+                    <nav><Link href={'/catalogue'}>{t('Булочки')}</Link></nav>
+                    <nav><Link href={'/catalogue'}>{t('Пирожные')}</Link></nav>
+                    <nav><Link href={'/catalogue'}>{t('Кексы')}</Link></nav>
+                    <nav><Link href={'/catalogue'}>{t('Печенье')}</Link></nav>
                 </div>
                 <div className={cls.section}>
                     <h4 className={cls.title}>{t('О нас')}</h4>

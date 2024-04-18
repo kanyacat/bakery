@@ -29,7 +29,7 @@ export const Header = () => {
                         <Link href={'/catalogue'}>{t('Каталог')}</Link>
                     </nav>
                     <nav className={cls.item}>
-                        <Link href={'/'}>{t('Новости')}</Link>
+                        <Link href={'/news'}>{t('Новости')}</Link>
                     </nav>
                     <nav className={cls.item}>
                         <Link href={'/'}>{t('Контакты')}</Link>
