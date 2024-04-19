@@ -127,28 +127,25 @@ export default function MainPage() {
             <h2 className={cls.title}>{t('Новости')}</h2>
             <div className={cls.minicards}>
                 <Card
-                    background={'https://i.ibb.co/d6zrGzy/Rectangle-9.png'}
-                    date={t('Март 2023')}
-                    text={t('interior inspiration\n') +
-                        t('hidden to in the middle of....')}
+                    background={'https://i.ibb.co/hC1yqJv/Rectangle-9-1.png'}
+                    date={t('Апрель 2024')}
+                    text={t('Новое поступление свежего хлеба')}
+                    width={'320'}
+                    height={'320'}
+                    news={true}
+                />
+                <Card
+                    background={'https://i.ibb.co/7pjrFrZ/Rectangle-9-3.png'}
+                    date={t('Март 2024')}
+                    text={t('Специальное предложение на пончики')}
                     width={'320'}
                     height={'320'}
                     news={true}
                 />
                 <Card
                     background={'https://i.ibb.co/d6zrGzy/Rectangle-9.png'}
-                    date={t('Март 2023')}
-                    text={t('interior inspiration\n') +
-                        t('hidden to in the middle of....')}
-                    width={'320'}
-                    height={'320'}
-                    news={true}
-                />
-                <Card
-                    background={'https://i.ibb.co/d6zrGzy/Rectangle-9.png'}
-                    date={t('Март 2023')}
-                    text={t('interior inspiration\n') +
-                        t('hidden to in the middle of....')}
+                    date={t('Февраль 2024')}
+                    text={t('Организуем дегустацию новых вкусов круассанов')}
                     width={'320'}
                     height={'320'}
                     news={true}

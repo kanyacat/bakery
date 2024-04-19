@@ -1,15 +1,9 @@
 @import 'app/styles/mixins/breakpoint';
 
 .root {
-  position: fixed;
-
   li {
     margin-bottom: 10px;
     list-style: none;
-  }
-
-  @include tablet {
-    position: static;
   }
 }
 

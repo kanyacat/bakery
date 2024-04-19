@@ -52,7 +52,7 @@ export const Card = (props: CardProps) => {
             {news &&
                 <div className={cls.news}>
                     <p className={cls.date}>{date}</p>
-                    <p className={cls.textNews}>{text}</p>
+                    <p className={classNames(roboto.className, mods, [cls.textNews, className])}>{text}</p>
                 </div>
             }
             {name &&  <p className={cls.name}>{name}</p>}
