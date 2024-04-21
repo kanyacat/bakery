@@ -32,7 +32,7 @@ export const Header = () => {
                         <Link href={'/news'}>{t('Новости')}</Link>
                     </nav>
                     <nav className={cls.item}>
-                        <Link href={'/'}>{t('Контакты')}</Link>
+                        <Link href={'/contact'}>{t('Контакты')}</Link>
                     </nav>
                     <nav className={cls.item}>
                         <Button theme={ButtonTheme.LIGHT} icon={<SearchIcon />}>{t('Поиск')}</Button>

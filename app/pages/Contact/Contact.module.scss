@@ -1,0 +1,20 @@
+.root {
+  margin: 60px 0;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 40px;
+  letter-spacing: -0.03em;
+  text-align: center;
+  color: var(--dark-color);
+
+  margin-bottom: 50px;
+}
+
+.map {
+  div {
+    width: 1200px !important;
+    height: 100px !important;
+  }
+}

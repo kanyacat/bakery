@@ -1,13 +1,14 @@
 import React from 'react';
-import {News} from "@/app/pages/News/News";
+import {Contact} from "@/app/pages/Contact/Contact";
 import {Metadata} from "next";
 
 export const metadata: Metadata = {
-    title: "Хлебная лавка — Новости",
+    title: "Хлебная лавка — Контакты",
     description: "Хлебная лавка - сеть минипекарен в Твери.",
 };
+
 const Page = () => (
-    <News />
+    <Contact />
 );
 
 export default Page;
