@@ -8,12 +8,32 @@ import {Card} from "@/app/components/Card/Card";
 import {Sidebar} from "@/app/components/Sidebar/Sidebar";
 import Link from "next/link";
 import {Roboto} from "next/font/google";
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 const roboto = Roboto({ weight: ['300'], subsets: ['latin']});
 
 export const Catalogue = () => {
     const {t} = useTranslation();
 
+    const [catalogue, setCatalogue] = useState([])
+    async function getCatalogue(): Promise<void> {
+        try {
+            const { data } = await axios.get(
+                'http://localhost:4444/catalogue'
+            )
+            setCatalogue(data)
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    useEffect(() => {
+        getCatalogue()
+    }, [])
+
+
+    // @ts-ignore
     return (
         <div className={classNames(cls.root, {}, [])}>
             <h1 className={cls.title}>{t('Каталог')}</h1>
@@ -24,66 +44,17 @@ export const Catalogue = () => {
                     <Button>{t('Сортировать по')}:</Button>
                 </div>
                 <div className={cls.bottom}>
-                    <Link href={'/catalogue/1'}>
-                        <Card
-                            background={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
-                            name={t('Карамельный пончик')}
-                            width={'303'}
-                            height={'303'}
-                        />
-                    </Link>
-                    <Link href={'/catalogue/2'}>
-                        <Card
-                            background={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
-                            name={t('Карамельный пончик')}
-                            width={'303'}
-                            height={'303'}
-                        />
-                    </Link>
-                    <Link href={'/catalogue/3'}>
-                        <Card
-                            background={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
-                            name={t('Карамельный пончик')}
-                            width={'303'}
-                            height={'303'}
-                        />
-                    </Link>
-                    <Card
-                        background={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
-                        name={t('Карамельный пончик')}
-                        width={'303'}
-                        height={'303'}
-                    />
-                    <Card
-                        background={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
-                        name={t('Карамельный пончик')}
-                        width={'303'}
-                        height={'303'}
-                    />
-                    <Card
-                        background={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
-                        name={t('Карамельный пончик')}
-                        width={'303'}
-                        height={'303'}
-                    />
-                    <Card
-                        background={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
-                        name={t('Карамельный пончик')}
-                        width={'303'}
-                        height={'303'}
-                    />
-                    <Card
-                        background={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
-                        name={t('Карамельный пончик')}
-                        width={'303'}
-                        height={'303'}
-                    />
-                    <Card
-                        background={'https://i.ibb.co/kXt0xMt/Rectangle-30.png'}
-                        name={t('Карамельный пончик')}
-                        width={'303'}
-                        height={'303'}
-                    />
+                    {catalogue?.map((product) => (
+                        <Link key={product._id} href={`/catalogue/${product._id}`}>
+                            <Card
+                                background={product.img}
+                                name={product.name}
+                                width={'303'}
+                                height={'303'}
+                            />
+                        </Link>
+
+                    ))}
                 </div>
             </div>
         </div>
