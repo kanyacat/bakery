@@ -9,7 +9,7 @@ import {IProduct} from "@/app/pages/Catalogue/Catalogue";
 const Page = () => {
     const params = useParams()
 
-    const [product, setProduct] = useState<IProduct>([])
+    const [product, setProduct] = useState<IProduct>()
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async function getProduct(): Promise<void> {
         try {

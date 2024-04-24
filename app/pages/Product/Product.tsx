@@ -9,7 +9,7 @@ const roboto = Roboto({ weight: ['300'], subsets: ['latin']});
 
 interface ProductProps {
     className?: string
-    product: IProduct
+    product: IProduct | undefined
 }
 
 export const Product = ({className, product}: ProductProps) => {
@@ -17,18 +17,18 @@ export const Product = ({className, product}: ProductProps) => {
 
     return (
         <div className={classNames(cls.root, {}, [className])}>
-            <img className={cls.img} src={product.img} alt="product"/>
-            <div className={cls.content}><h1>{product.name}</h1>
+            <img className={cls.img} src={product?.img} alt="product"/>
+            <div className={cls.content}><h1>{product?.name}</h1>
                 {/* eslint-disable-next-line i18next/no-literal-string */}
-                <h2 className={cls.price}>{product.price} ₽</h2>
+                <h2 className={cls.price}>{product?.price} ₽</h2>
                 <p className={classNames(roboto.className, {}, [cls.description])}>
-                    {product.description}
+                    {product?.description}
                 </p>
                 <p className={classNames(roboto.className, {}, [cls.weight])}>
-                    {t('Вес:')} {product.weight}
+                    {t('Вес:')} {product?.weight}
                 </p>
                 <p className={classNames(roboto.className, {}, [cls.calorie])}>
-                    {t('Калории:')} {product.calorie}
+                    {t('Калории:')} {product?.calorie}
                 </p>
                 <div className={cls.buttons}>
                     <Button>{t('Купить сейчас')}</Button>
