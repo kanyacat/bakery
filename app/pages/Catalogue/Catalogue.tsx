@@ -11,12 +11,23 @@ import {Roboto} from "next/font/google";
 import {useEffect, useState} from "react";
 import axios from "axios";
 
-const roboto = Roboto({ weight: ['300'], subsets: ['latin']});
+export interface IProduct {
+    name: string
+    category: string
+    price: number
+    count: number
+    img: string
+    imgCard: string
+    weight:number
+    calorie: number
+    _id: number
+    description: string
+}
 
 export const Catalogue = () => {
     const {t} = useTranslation();
 
-    const [catalogue, setCatalogue] = useState([])
+    const [catalogue, setCatalogue] = useState<IProduct[]>([])
     async function getCatalogue(): Promise<void> {
         try {
             const { data } = await axios.get(
@@ -33,7 +44,6 @@ export const Catalogue = () => {
     }, [])
 
 
-    // @ts-ignore
     return (
         <div className={classNames(cls.root, {}, [])}>
             <h1 className={cls.title}>{t('Каталог')}</h1>
@@ -47,13 +57,12 @@ export const Catalogue = () => {
                     {catalogue?.map((product) => (
                         <Link key={product._id} href={`/catalogue/${product._id}`}>
                             <Card
-                                background={product.img}
+                                background={product.imgCard ? product.imgCard : product.img}
                                 name={product.name}
                                 width={'303'}
                                 height={'303'}
                             />
                         </Link>
-
                     ))}
                 </div>
             </div>

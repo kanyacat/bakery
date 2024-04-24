@@ -4,7 +4,16 @@
 
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 0 30px;
   align-items: center;
+  justify-items: center;
+}
+
+.img {
+  border-radius: 10px;
+  max-width: 550px;
+  width: 100%;
+  max-height: 550px;
 }
 
 .title {
@@ -17,18 +26,23 @@
   font-size: 44px;
   color: var(--light-color);
 
-  margin-bottom: 40px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.description, .calorie, .weight {
+  width: 410px;
+  font-weight: 400;
+  font-size: 18px;
 }
 
 .description {
-  width: 410px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .buttons {
   display: flex;
-  margin-bottom: 15px;
-
+margin: 15px 0;
   button {
     margin-right: 50px;
   }
