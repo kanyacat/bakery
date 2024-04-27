@@ -4,7 +4,10 @@ import cls from './Contact.module.scss'
 import {useTranslation} from 'react-i18next';
 import {classNames} from "@/app/lib/classNames/classNames";
 import {YMaps, Map, Placemark} from '@pbe/react-yandex-maps';
+import MarkIcon from '@/app/assets/icons/Map.svg'
+import {Roboto} from "next/font/google";
 
+const roboto = Roboto({ weight: ['300'], subsets: ['latin']});
 
 interface ContactProps {
     className?: string
@@ -36,6 +39,25 @@ export const Contact = ({className}: ContactProps) => {
                     </Map>
                 </div>
             </YMaps>
+            <div className={classNames(roboto.className, {}, [cls.addresses])}>
+                <div className={cls.address}>
+                    <MarkIcon className={cls.icon} />
+                    <p className={cls.text}>{t('улица Паши Савельевой, 21к1')}</p>
+                </div>
+                <div className={cls.address}>
+                    <MarkIcon className={cls.icon} />
+                    <p className={cls.text}>{t('улица Виноградова, 3')}</p>
+                </div>
+                <div className={cls.address}>
+                    <MarkIcon className={cls.icon} />
+                    <p className={cls.text}>{t('1-я улица Суворова, 15')}</p>
+                </div>
+                <div className={cls.address}>
+                    <MarkIcon className={cls.icon} />
+                    <p className={cls.text}>{t('улица Склизкова, 44')}</p>
+                </div>
+
+            </div>
 
         </div>
     )

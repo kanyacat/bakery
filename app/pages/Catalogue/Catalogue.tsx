@@ -7,7 +7,6 @@ import {Button} from "@/app/components/Button/Button";
 import {Card} from "@/app/components/Card/Card";
 import {Sidebar} from "@/app/components/Sidebar/Sidebar";
 import Link from "next/link";
-import {Roboto} from "next/font/google";
 import {useEffect, useState} from "react";
 import axios from "axios";
 

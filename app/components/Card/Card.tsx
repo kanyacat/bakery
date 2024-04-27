@@ -6,8 +6,6 @@ import {Quicksand, Roboto} from "next/font/google";
 
 const roboto = Roboto({ weight: ['300'], subsets: ['latin']});
 
-
-
 interface CardProps {
     className?: string
     height: string
