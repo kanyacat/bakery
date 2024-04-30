@@ -5,7 +5,7 @@ import {IProduct} from "@/app/pages/Catalogue/Catalogue";
 
 export const fetchProducts = createAsyncThunk(
     'products/fetchProductStatus',
-    async (params: Object) => {
+    async (params?: Object) => {
 
         // @ts-ignore
         const res = await axios.get<IProduct[]>(
