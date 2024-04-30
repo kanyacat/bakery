@@ -9,6 +9,10 @@ import {Sidebar} from "@/app/components/Sidebar/Sidebar";
 import Link from "next/link";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {useSelector} from "react-redux";
+import {useAppDispatch} from "@/app/redux/ store";
+import {productSelector} from "@/app/redux/products/selectors";
+import {fetchProducts} from "@/app/redux/products/slice";
 
 export interface IProduct {
     name: string
@@ -26,14 +30,17 @@ export interface IProduct {
 export const Catalogue = () => {
     const {t} = useTranslation();
 
-    const [catalogue, setCatalogue] = useState<IProduct[]>([])
+    // const [catalogue, setCatalogue] = useState<IProduct[]>([])
+
+
+    const { items } = useSelector(productSelector)
+    const dispatch = useAppDispatch()
+
     async function getCatalogue(): Promise<void> {
         try {
-            const { data } = await axios.get(
-                'http://localhost:4444/catalogue'
-            )
-            setCatalogue(data)
-        } catch (error) {
+            dispatch(fetchProducts())
+        }
+        catch (error) {
             console.error(error)
         }
     }
@@ -41,7 +48,6 @@ export const Catalogue = () => {
     useEffect(() => {
         getCatalogue()
     }, [])
-
 
     return (
         <div className={classNames(cls.root, {}, [])}>
@@ -53,7 +59,7 @@ export const Catalogue = () => {
                     <Button>{t('Сортировать по')}:</Button>
                 </div>
                 <div className={cls.bottom}>
-                    {catalogue?.map((product) => (
+                    {items?.map((product) => (
                         <Link key={product._id} href={`/catalogue/${product._id}`}>
                             <Card
                                 background={product.imgCard ? product.imgCard : product.img}

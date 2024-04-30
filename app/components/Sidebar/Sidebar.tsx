@@ -5,6 +5,10 @@ import {Button} from "@/app/components/Button/Button";
 import {useEffect, useState} from "react";
 import {IProduct} from "@/app/pages/Catalogue/Catalogue";
 import axios from "axios";
+import {useSelector} from "react-redux";
+import {productSelector} from "@/app/redux/products/selectors";
+import {useAppDispatch} from "@/app/redux/ store";
+import {fetchProducts} from "@/app/redux/products/slice";
 
 
 interface SidebarProps {
@@ -14,20 +18,25 @@ interface SidebarProps {
 export const Sidebar = ({className}: SidebarProps) => {
     const {t} = useTranslation();
 
-    const [catalogue, setCatalogue] = useState<IProduct[]>([])
-    
+    const { items } = useSelector(productSelector)
+    const dispatch = useAppDispatch()
+
+    async function getCatalogue(): Promise<void> {
+        try {
+            // @ts-ignore
+            dispatch(fetchProducts({params: {"category": "Печенье"}}))
+        }
+        catch (error) {
+            console.error(error)
+        }
+    }
+
     return (
         <div className={classNames(cls.root, {}, [className])}>
             <h2 className={cls.title}>{t('Категории')}</h2>
             <ul className={cls.list}>
                 <li><Button onClick={ async () => {
-                    // @ts-ignore
-                    const { data } = await axios.get(
-                        'http://localhost:4444/catalogue',
-                        {params: {"category": "Печенье"} }
-                    )
-                    setCatalogue(data)
-
+                    getCatalogue()
                 }}>{t('Батоны')}</Button></li>
                 <li><Button>{t('Блины')}</Button></li>
                 <li><Button>{t('Булочки')}</Button></li>

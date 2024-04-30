@@ -6,6 +6,8 @@ import {Header} from "@/app/components/Header/Header";
 import Container from "@/app/components/Container/Container";
 import React, {ReactNode} from "react";
 import {Footer} from "@/app/components/Footer/Footer";
+import {Provider} from "react-redux";
+import {store} from "@/app/redux/ store";
 
 const quicksand = Quicksand({ subsets: ["latin"] });
 
@@ -22,14 +24,16 @@ export default function RootLayout({
 
 
     return (
-        <html lang="ru">
-            <body className={classNames(quicksand.className, {}, ['app'])}>
-                <Header />
-                <Container>
-                    {children}
-                </Container>
-                <Footer />
-            </body>
-        </html>
+        <Provider store={store}>
+            <html lang="ru">
+                <body className={classNames(quicksand.className, {}, ['app'])}>
+                    <Header />
+                    <Container>
+                        {children}
+                    </Container>
+                    <Footer />
+                </body>
+            </html>
+        </Provider>
     );
 }
