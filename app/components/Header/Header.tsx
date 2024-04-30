@@ -38,7 +38,9 @@ export const Header = () => {
                         <Button theme={ButtonTheme.LIGHT} icon={<SearchIcon />}>{t('Поиск')}</Button>
                     </nav>
                     <nav className={cls.item}>
-                        <Button icon={<CartIcon />}>{t('Корзина')}</Button>
+                        <Link href={'/cart'}>
+                            <Button icon={<CartIcon />}>{t('Корзина')}</Button>
+                        </Link>
                     </nav>
                 </div>
             </Container>
