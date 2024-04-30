@@ -7,8 +7,7 @@ import {Button} from "@/app/components/Button/Button";
 import {Card} from "@/app/components/Card/Card";
 import {Sidebar} from "@/app/components/Sidebar/Sidebar";
 import Link from "next/link";
-import {useEffect, useState} from "react";
-import axios from "axios";
+import {useEffect} from "react";
 import {useSelector} from "react-redux";
 import {useAppDispatch} from "@/app/redux/ store";
 import {productSelector} from "@/app/redux/products/selectors";
@@ -30,11 +29,10 @@ export interface IProduct {
 export const Catalogue = () => {
     const {t} = useTranslation();
 
-    // const [catalogue, setCatalogue] = useState<IProduct[]>([])
-
 
     const { items } = useSelector(productSelector)
     const dispatch = useAppDispatch()
+
 
     async function getCatalogue(): Promise<void> {
         try {
@@ -44,7 +42,6 @@ export const Catalogue = () => {
             console.error(error)
         }
     }
-
     useEffect(() => {
         getCatalogue()
     }, [])
