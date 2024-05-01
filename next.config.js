@@ -6,5 +6,5 @@ module.exports = {
             use: ['@svgr/webpack']
         })
         return config
-    }
+    },
 }

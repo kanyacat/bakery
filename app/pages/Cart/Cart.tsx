@@ -5,6 +5,8 @@ import {useTranslation} from 'react-i18next';
 import {classNames} from "@/app/lib/classNames/classNames";
 import Link from "next/link";
 import {Button} from "@/app/components/Button/Button";
+import {useSelector} from "react-redux";
+import {authDataSelector} from "@/app/redux/auth/selectors";
 
 
 interface CartProps {
@@ -13,6 +15,11 @@ interface CartProps {
 
 export const Cart = ({className}: CartProps) => {
     const {t} = useTranslation();
+
+    const data = useSelector(authDataSelector)
+
+    console.log(data)
+
 
     return (
         <div className={classNames(cls.root, {}, [className])}>
