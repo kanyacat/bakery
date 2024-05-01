@@ -27,7 +27,7 @@ export const Login = () => {
         mode: 'onChange'
     })
 
-    window.scrollTo(0, 0)
+    // window?.scrollTo(0, 0)
 
     const onSubmit = async (values: any) => {
         console.log(values)
