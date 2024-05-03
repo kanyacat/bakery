@@ -33,7 +33,6 @@ export const Catalogue = () => {
     const { items } = useSelector(productSelector)
     const dispatch = useAppDispatch()
 
-
     async function getCatalogue(): Promise<void> {
         try {
             dispatch(fetchProducts())
