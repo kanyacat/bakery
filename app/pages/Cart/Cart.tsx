@@ -6,6 +6,12 @@ import {classNames} from "@/app/lib/classNames/classNames";
 import {Button} from "@/app/components/Button/Button";
 import {useEffect, useState} from "react";
 import axios from "@/app/axios";
+import {useSelector} from "react-redux";
+import {authDataSelector} from "@/app/redux/auth/selectors";
+import {useAppDispatch} from "@/app/redux/ store";
+import {cartSelector} from "@/app/redux/cart/selectors";
+import {fetchProducts} from "@/app/redux/products/slice";
+import {fetchCart} from "@/app/redux/cart/slice";
 
 
 interface CartProps {
@@ -15,24 +21,24 @@ interface CartProps {
 export const Cart = ({className}: CartProps) => {
     const {t} = useTranslation();
 
-    const [cart, setCart] = useState()
     const [products, setProducts] = useState([])
+
+    const dispatch = useAppDispatch()
+    const {items} = useSelector(cartSelector)
+
     async function getCart(): Promise<void> {
         try {
-            const { data } = await axios.get(
-                '/cart'
-            )
-            setCart(data.products)
-        } catch (error) {
+            dispatch(fetchCart())
+        }
+        catch (error) {
             console.error(error)
         }
     }
-
     useEffect(() => {
         getCart()
     }, [])
 
-    cart?.map(async (p) => {
+    items.products?.map(async (p: any) => {
         const {data} = await axios.get(
             `/product/${p.productId}`
         )
@@ -40,12 +46,10 @@ export const Cart = ({className}: CartProps) => {
         products.push(data)
     })
 
-    // products?.map((p) => (console.log(p)))
-
-    // @ts-ignore
     return (
         <div className={classNames(cls.root, {}, [className])}>
-            {products?.map((p, index) => {
+            {products?.map((p: any, index) => {
+                // @ts-ignore
                 return <div key={p._id} className={cls.wrapper}>
                     <img className={cls.img}
                         src={p.img}
@@ -53,11 +57,11 @@ export const Cart = ({className}: CartProps) => {
                     <p className={cls.name}>{p.name}</p>
                     <div className={cls.count}>
                         <Button>-</Button>
-                        <p className={cls.countValue}>{cart[index].count}</p>
-                        <Button>+</Button>
+                        <p className={cls.countValue}>{items.products[index]?.count}</p>
+                        <Button onClick={() => addToCart(p._id)}>+</Button>
                     </div>
                     <p className={cls.price}>{p.price}{t('₽ за одну шт.')}</p>
-                    <p className={cls.price}>{t('Итого: ')}{p.price * cart[index].count}{t('₽')}</p>
+                    <p className={cls.price}>{t('Итого: ')}{p.price * items.products[index].count}{t(' ₽')}</p>
                 </div>})}
             <div className={cls.bottom}>
                 <p className={cls.sum}>{t('Сумма заказа: 1234 ₽')}</p>

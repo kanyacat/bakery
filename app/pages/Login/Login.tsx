@@ -48,7 +48,8 @@ export const Login = () => {
     }
 
     return (
-        <div className={classNames(cls.Login, {}, [])}>
+        <div className={classNames(cls.root, {}, [])}>
+            <h1 className={cls.title}>{t('Вход')}</h1>
             <form className={cls.form} onSubmit={handleSubmit(onSubmit)}>
                 <Input
                     type='email'
