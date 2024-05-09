@@ -46,6 +46,12 @@ export const Cart = ({className}: CartProps) => {
         products.push(data)
     })
 
+    let sum = 0;
+
+    for(let i = 0; i < products.length; i++){
+        sum += products[i]?.price * items.products[i].count
+    }
+
     return (
         <div className={classNames(cls.root, {}, [className])}>
             {products?.map((p: any, index) => {
@@ -64,7 +70,7 @@ export const Cart = ({className}: CartProps) => {
                     <p className={cls.price}>{t('Итого: ')}{p.price * items.products[index].count}{t(' ₽')}</p>
                 </div>})}
             <div className={cls.bottom}>
-                <p className={cls.sum}>{t('Сумма заказа: 1234 ₽')}</p>
+                <p className={cls.sum}>{t('Сумма заказа: ')}{sum} {t('₽')}</p>
                 <Button className={cls.buy}>{t('Заказать')}</Button>
             </div>
         </div>)
