@@ -7,13 +7,13 @@ import {useSelector} from "react-redux";
 import {authDataSelector, isAuthSelector} from "@/app/redux/auth/selectors";
 import {useAppDispatch} from "@/app/redux/ store";
 import {useForm} from "react-hook-form";
-import {fetchAuth, fetchAuthMe} from "@/app/redux/auth/slice";
+import {fetchAuth, fetchAuthMe, fetchRegister} from "@/app/redux/auth/slice";
 import {redirect} from "next/navigation";
 import Input from "@/app/components/Input/Input";
 import {Button} from "@/app/components/Button/Button";
 
 
-export const Login = () => {
+export const Register = () => {
     const {t} = useTranslation();
 
     const isAuth = useSelector(isAuthSelector)
@@ -27,14 +27,12 @@ export const Login = () => {
         mode: 'onChange'
     })
 
-    // window?.scrollTo(0, 0)
-
     const onSubmit = async (values: any) => {
         // @ts-ignore
-        const data = await dispatch(fetchAuth(values))
+        const data = await dispatch(fetchRegister(values))
 
         if (!data.payload) {
-            return alert('Не удалось авторизоваться')
+            return alert('Не удалось зарегистрироваться')
         }
 
         if (data.payload.token) {
@@ -48,8 +46,17 @@ export const Login = () => {
 
     return (
         <div className={classNames(cls.root, {}, [])}>
-            <h1 className={cls.title}>{t('Вход')}</h1>
+            <h1 className={cls.title}>{t('Регистрация')}</h1>
             <form className={cls.form} onSubmit={handleSubmit(onSubmit)}>
+                <Input
+                    type='text'
+                    placeholder={t('Ваше имя')}
+                    {...register('fullName', {
+                        required: { value: true, message: t('Заполните имя') }
+                    })}
+                    errorMessage={errors?.comment?.message?.toString()}
+                    className={cls.input}
+                />
                 <Input
                     type='email'
                     placeholder={t('Электронная почта')}
@@ -60,7 +67,7 @@ export const Login = () => {
                     className={cls.input}
                 />
                 <Input
-                    type='text'
+                    type='password'
                     placeholder={t('Пароль')}
                     {...register('password', {
                         required: { value: true, message: t('Заполните пароль') }

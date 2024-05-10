@@ -69,7 +69,7 @@ export const Header = () => {
                                 <Link href={'/login'}>{t('Вход')}</Link>
                             </nav>
                             <nav className={cls.item}>
-                                <Link href={'/'}>{t('Регистрация')}</Link>
+                                <Link href={'/register'}>{t('Регистрация')}</Link>
                             </nav>
                         </>
                     }
