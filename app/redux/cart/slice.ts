@@ -13,6 +13,17 @@ export const fetchCart = createAsyncThunk(
     }
 )
 
+export const addToCart = createAsyncThunk(
+    'cart/addToCart',
+    async (params) => {
+
+        const res = await axios.post(
+            `http://localhost:4444/cart`, params
+        )
+        return res.data
+    }
+)
+
 const initialState: any = {
     items: [],
     status: Status.LOADING //loading | success | error
@@ -41,6 +52,20 @@ export const cartSlice = createSlice({
                 state.status = Status.ERROR
                 state.items = []
             })
+            .addCase(addToCart.pending, state => {
+                state.status = Status.LOADING
+                state.items = []
+            })
+            .addCase(addToCart.fulfilled, (state, action) => {
+                // @ts-ignore
+                state.items = action.payload
+                state.status = Status.SUCCESS
+            })
+            .addCase(addToCart.rejected, state => {
+                state.status = Status.ERROR
+                state.items = []
+            })
+
     }
 })
 

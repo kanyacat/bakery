@@ -30,7 +30,6 @@ export const Login = () => {
     // window?.scrollTo(0, 0)
 
     const onSubmit = async (values: any) => {
-        console.log(values)
         // @ts-ignore
         const data = await dispatch(fetchAuth(values))
 

@@ -4,6 +4,11 @@ import {classNames} from "@/app/lib/classNames/classNames";
 import {Button} from "@/app/components/Button/Button";
 import {IProduct} from "@/app/pages/Catalogue/Catalogue";
 import {Roboto} from "next/font/google";
+import {addToCart} from "@/app/redux/cart/slice";
+import {useAppDispatch} from "@/app/redux/ store";
+import {useSelector} from "react-redux";
+import {cartSelector} from "@/app/redux/cart/selectors";
+import {authDataSelector} from "@/app/redux/auth/selectors";
 
 const roboto = Roboto({ weight: ['300'], subsets: ['latin']});
 
@@ -14,6 +19,24 @@ interface ProductProps {
 
 export const Product = ({className, product}: ProductProps) => {
     const {t} = useTranslation();
+
+    const dispatch = useAppDispatch()
+    const userData = useSelector(authDataSelector)
+
+
+    const addProduct = async (productId: number | undefined) =>{
+
+        const params = {
+            userId: userData._id,
+            productId: productId,
+            count: 1
+        }
+
+        // @ts-ignore
+        dispatch(addToCart(params))
+        return alert('Товар успешно добавлен в корзину!')
+
+    }
 
     return (
         <div className={classNames(cls.root, {}, [className])}>
@@ -32,7 +55,7 @@ export const Product = ({className, product}: ProductProps) => {
                 </p>
                 <div className={cls.buttons}>
                     <Button>{t('Купить сейчас')}</Button>
-                    <Button>{t('Добавить в корзину')}</Button>
+                    <Button onClick={() => addProduct(product?._id)}>{t('Добавить в корзину')}</Button>
                 </div>
             </div>
         </div>

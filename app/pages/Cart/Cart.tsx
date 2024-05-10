@@ -10,8 +10,7 @@ import {useSelector} from "react-redux";
 import {authDataSelector} from "@/app/redux/auth/selectors";
 import {useAppDispatch} from "@/app/redux/ store";
 import {cartSelector} from "@/app/redux/cart/selectors";
-import {fetchProducts} from "@/app/redux/products/slice";
-import {fetchCart} from "@/app/redux/cart/slice";
+import {addToCart, fetchCart} from "@/app/redux/cart/slice";
 
 
 interface CartProps {
@@ -25,6 +24,8 @@ export const Cart = ({className}: CartProps) => {
 
     const dispatch = useAppDispatch()
     const {items} = useSelector(cartSelector)
+    const userData = useSelector(authDataSelector)
+
 
     async function getCart(): Promise<void> {
         try {
@@ -49,7 +50,20 @@ export const Cart = ({className}: CartProps) => {
     let sum = 0;
 
     for(let i = 0; i < products.length; i++){
-        sum += products[i]?.price * items.products[i].count
+        // @ts-ignore
+        sum += products[i]?.price * items?.products[i]?.count
+    }
+
+    const addProduct = async (productId: number) =>{
+
+        const params = {
+            userId: userData._id,
+            productId: productId,
+            count: 1
+        }
+
+        // @ts-ignore
+        dispatch(addToCart(params))
     }
 
     return (
@@ -64,10 +78,10 @@ export const Cart = ({className}: CartProps) => {
                     <div className={cls.count}>
                         <Button>-</Button>
                         <p className={cls.countValue}>{items.products[index]?.count}</p>
-                        <Button onClick={() => addToCart(p._id)}>+</Button>
+                        <Button onClick={() => addProduct(p._id)}>+</Button>
                     </div>
                     <p className={cls.price}>{p.price}{t('₽ за одну шт.')}</p>
-                    <p className={cls.price}>{t('Итого: ')}{p.price * items.products[index].count}{t(' ₽')}</p>
+                    <p className={cls.price}>{t('Итого: ')}{p.price * items.products[index]?.count}{t(' ₽')}</p>
                 </div>})}
             <div className={cls.bottom}>
                 <p className={cls.sum}>{t('Сумма заказа: ')}{sum} {t('₽')}</p>
