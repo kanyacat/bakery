@@ -64,28 +64,31 @@ export const Cart = ({className}: CartProps) => {
 
         // @ts-ignore
         dispatch(addToCart(params))
+        location.reload();
     }
 
     return (
         <div className={classNames(cls.root, {}, [className])}>
-            {products?.map((p: any, index) => {
+            {products.length > 0 ? <>
+                {products?.map((p: any, index) => {
                 // @ts-ignore
-                return <div key={p._id} className={cls.wrapper}>
-                    <img className={cls.img}
-                        src={p.img}
-                        alt=""/>
-                    <p className={cls.name}>{p.name}</p>
-                    <div className={cls.count}>
-                        <Button>-</Button>
-                        <p className={cls.countValue}>{items.products[index]?.count}</p>
-                        <Button onClick={() => addProduct(p._id)}>+</Button>
-                    </div>
-                    <p className={cls.price}>{p.price}{t('₽ за одну шт.')}</p>
-                    <p className={cls.price}>{t('Итого: ')}{p.price * items.products[index]?.count}{t(' ₽')}</p>
-                </div>})}
-            <div className={cls.bottom}>
-                <p className={cls.sum}>{t('Сумма заказа: ')}{sum} {t('₽')}</p>
-                <Button className={cls.buy}>{t('Заказать')}</Button>
-            </div>
+                    return <div key={p._id} className={cls.wrapper}>
+                        <img className={cls.img}
+                            src={p.img}
+                            alt=""/>
+                        <p className={cls.name}>{p.name}</p>
+                        <div className={cls.count}>
+                            <Button>-</Button>
+                            <p className={cls.countValue}>{items.products[index]?.count}</p>
+                            <Button onClick={() => addProduct(p._id)}>+</Button>
+                        </div>
+                        <p className={cls.price}>{p.price}{t('₽ за одну шт.')}</p>
+                        <p className={cls.price}>{t('Итого: ')}{p.price * items.products[index]?.count}{t(' ₽')}</p>
+                    </div>})}
+                <div className={cls.bottom}>
+                    <p className={cls.sum}>{t('Сумма заказа: ')}{sum} {t('₽')}</p>
+                    <Button className={cls.buy}>{t('Заказать')}</Button>
+                </div>
+            </>: <div className={cls.empty}><h1 className={cls.sum}>{t('В корзине ничего не найдено.')}</h1></div>}
         </div>)
 }
