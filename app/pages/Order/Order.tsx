@@ -1,24 +1,24 @@
 'use client'
 
-import cls from './Cart.module.scss'
+import cls from './Order.module.scss'
 import {useTranslation} from 'react-i18next';
 import {classNames} from "@/app/lib/classNames/classNames";
-import {Button} from "@/app/components/Button/Button";
 import {useEffect, useState} from "react";
-import axios from "@/app/axios";
-import {useSelector} from "react-redux";
-import {authDataSelector} from "@/app/redux/auth/selectors";
 import {useAppDispatch} from "@/app/redux/ store";
+import {useSelector} from "react-redux";
 import {cartSelector} from "@/app/redux/cart/selectors";
+import {authDataSelector} from "@/app/redux/auth/selectors";
 import {addToCart, fetchCart} from "@/app/redux/cart/slice";
+import axios from "@/app/axios";
+import {Button} from "@/app/components/Button/Button";
 import Link from "next/link";
 
 
-interface CartProps {
+interface OrderProps {
     className?: string
 }
 
-export const Cart = ({className}: CartProps) => {
+export const Order = ({className}: OrderProps) => {
     const {t} = useTranslation();
 
     const [products, setProducts] = useState([])
@@ -70,26 +70,29 @@ export const Cart = ({className}: CartProps) => {
 
     return (
         <div className={classNames(cls.root, {}, [className])}>
-            {products.length > 0 ? <>
+            <h1 className={cls.title}>{t('Содержание заказа')}</h1>
+            <h2 className={cls.subtitle}>{t('Товары:')}</h2>
+            <div className={cls.goods}>
                 {products?.map((p: any, index) => {
-                // @ts-ignore
+                    // @ts-ignore
                     return <div key={p._id} className={cls.wrapper}>
                         <img className={cls.img}
                             src={p.img}
                             alt=""/>
                         <p className={cls.name}>{p.name}</p>
-                        <div className={cls.count}>
-                            <Button>-</Button>
-                            <p className={cls.countValue}>{items.products[index]?.count}</p>
-                            <Button onClick={() => addProduct(p._id)}>+</Button>
-                        </div>
+                        <p className={cls.countValue}>{t('х')}{items.products[index]?.count}</p>
                         <p className={cls.price}>{p.price}{t('₽ за одну шт.')}</p>
                         <p className={cls.price}>{t('Итого: ')}{p.price * items.products[index]?.count}{t(' ₽')}</p>
                     </div>})}
-                <div className={cls.bottom}>
-                    <p className={cls.sum}>{t('Сумма заказа: ')}{sum} {t('₽')}</p>
-                    <Link href={'/order'}><Button className={cls.buy}>{t('Заказать')}</Button></Link>
+                <div className={cls.choice}>
+                    <p className={cls.address}>{t('Адрес заказа: 1-я улица Суворова, 15')}</p>
+                    <p className={cls.payment}>{t('Оплата: наличными при получении ')}</p>
                 </div>
-            </>: <div className={cls.empty}><h1 className={cls.sum}>{t('В корзине ничего не найдено.')}</h1></div>}
-        </div>)
+                <div className={cls.bottom}>
+                    <p className={cls.sum}>{t('К оплате: ')}{sum} {t('₽')}</p>
+                    <Button className={cls.buy}>{t('Подтвердить')}</Button>
+                </div>
+            </div>
+        </div>
+    )
 }

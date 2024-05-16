@@ -43,7 +43,9 @@ const AboutUs = () => {
                 </div>
                 <div className={cls.divider}></div>
                 <div className={cls.items}><img src="https://i.ibb.co/M8PYPtZ/Rectangle-12.png" alt=""/></div>
-                <div className={cls.items}><img src="https://i.ibb.co/vV5RbVw/Rectangle-11.png" alt=""/></div>
+                <div className={cls.items}>
+                    <img src="https://biz-nes.ru/wp-content/uploads/2022/08/1660300944862.jpg" alt=""/>
+                </div>
                 <div className={cls.divider}></div>
                 <div className={cls.items}>
                     <div className={cls.itemsContent}>

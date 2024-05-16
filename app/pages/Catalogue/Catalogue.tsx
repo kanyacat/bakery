@@ -52,7 +52,7 @@ export const Catalogue = () => {
                 <div className={cls.sidebar}><Sidebar /></div>
                 <div className={cls.top}>
                     <h2>{t('Наши товары')}</h2>
-                    <Button>{t('Сортировать по')}:</Button>
+                    {/*<Button>{t('Сортировать по')}:</Button>*/}
                 </div>
                 <div className={cls.bottom}>
                     {items?.map((product) => (

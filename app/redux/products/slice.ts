@@ -9,7 +9,7 @@ export const fetchProducts = createAsyncThunk(
 
         // @ts-ignore
         const res = await axios.get<IProduct[]>(
-            `http://localhost:4444/catalogue`, params
+            `https://bakery-backend-lime.vercel.app/catalogue`, params
         )
         return res.data
     }

@@ -1,0 +1,67 @@
+.root {
+  color: var(--dark-color);
+
+  margin: 40px 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.title {
+  text-align: center;
+}
+
+.subtitle {
+  margin-left: 100px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  justify-items: center;
+
+  padding: 20px 40px;
+  margin-bottom: 20px;
+}
+
+.img {
+  width: 100px;
+  height: 100px;
+
+  border-radius: 10px;
+}
+
+.name {
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.count {
+  display: flex;
+  align-items: center;
+
+
+  &Value {
+    margin: 0 10px;
+  }
+}
+
+.choice {
+  margin-left: 80px;
+}
+
+.address {
+  margin-bottom: 20px;
+}
+
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 20px 80px;
+}
+
+.sum {
+  font-size: 24px;
+}

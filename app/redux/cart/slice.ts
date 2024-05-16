@@ -7,7 +7,7 @@ export const fetchCart = createAsyncThunk(
     async () => {
 
         const res = await axios.get(
-            `http://localhost:4444/cart`
+            `https://bakery-backend-lime.vercel.app/cart`
         )
         return res.data
     }
