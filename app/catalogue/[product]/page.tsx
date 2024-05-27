@@ -14,7 +14,7 @@ const Page = () => {
     async function getProduct(): Promise<void> {
         try {
             const { data } = await axios.get(
-                `http://localhost:4444/product/${params.product}`
+                `https://bakery-backend-lime.vercel.app/product/${params.product}`
             )
             setProduct(data)
         } catch (error) {

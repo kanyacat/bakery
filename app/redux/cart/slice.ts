@@ -18,7 +18,7 @@ export const addToCart = createAsyncThunk(
     async (params) => {
 
         const res = await axios.post(
-            `http://localhost:4444/cart`, params
+            `https://bakery-backend-lime.vercel.app/cart`, params
         )
         return res.data
     }
