@@ -57,15 +57,15 @@ export const Cart = ({className}: CartProps) => {
 
     const addProduct = async (productId: number) =>{
 
-        const params = {
-            userId: userData._id,
-            productId: productId,
-            count: 1
-        }
-
-        // @ts-ignore
-        dispatch(addToCart(params))
-        location.reload();
+        // const params = {
+        //     userId: userData._id,
+        //     productId: productId,
+        //     count: 1
+        // }
+        //
+        // // @ts-ignore
+        // dispatch(addToCart(params))
+        // location.reload();
     }
 
     return (

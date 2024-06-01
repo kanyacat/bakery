@@ -21,39 +21,48 @@ export const Sidebar = ({className}: SidebarProps) => {
     const { items } = useSelector(productSelector)
     const dispatch = useAppDispatch()
 
-    async function getCatalogue(): Promise<void> {
-        try {
-            // @ts-ignore
-            dispatch(fetchProducts({params: {"category": "Печенье"}}))
-        }
-        catch (error) {
-            console.error(error)
-        }
-    }
+    // async function getCatalogue(): Promise<void> {
+    //     try {
+    //         // @ts-ignore
+    //         dispatch(fetchProducts({params: {"category": "Печенье"}}))
+    //     }
+    //     catch (error) {
+    //         console.error(error)
+    //     }
+    // }
 
     return (
         <div className={classNames(cls.root, {}, [className])}>
             <h2 className={cls.title}>{t('Категории')}</h2>
             <ul className={cls.list}>
                 <li><Button onClick={ async () => {
-                    getCatalogue()
+                    dispatch(fetchProducts())
+                }}>{t('Все')}</Button></li>
+                <li><Button onClick={ async () => {
+                    dispatch(fetchProducts({params: {"category": "Батоны"}}))
                 }}>{t('Батоны')}</Button></li>
-                <li><Button>{t('Блины')}</Button></li>
-                <li><Button>{t('Булочки')}</Button></li>
-                <li><Button>{t('Жарка')}</Button></li>
-                <li><Button>{t('Кексы')}</Button></li>
-                <li><Button>{t('Куличи')}</Button></li>
-                <li><Button>{t('Осетия')}</Button></li>
-                <li><Button>{t('Песочные')}</Button></li>
-                <li><Button>{t('Печенье')}</Button></li>
-                <li><Button>{t('Пироги')}</Button></li>
-                <li><Button>{t('Пирожки')}</Button></li>
-                <li><Button>{t('Пицца')}</Button></li>
-                <li><Button>{t('Расстегаи')}</Button></li>
-                <li><Button>{t('Сдоба')}</Button></li>
-                <li><Button>{t('Слойки')}</Button></li>
-                <li><Button>{t('Хлеб')}</Button></li>
-                <li><Button>{t('Кондитерская')}</Button></li>
+                <li><Button onClick={ async () => {
+                    dispatch(fetchProducts({params: {"category": "Блины"}}))
+                }}>{t('Блины')}</Button></li>
+                <li><Button onClick={ async () => {
+                    dispatch(fetchProducts({params: {"category": "Булочки"}}))
+                }}>{t('Булочки')}</Button></li>
+                {/*<li><Button>{t('Жарка')}</Button></li>*/}
+                {/*<li><Button>{t('Кексы')}</Button></li>*/}
+                {/*<li><Button>{t('Куличи')}</Button></li>*/}
+                {/*<li><Button>{t('Осетия')}</Button></li>*/}
+                {/*<li><Button>{t('Песочные')}</Button></li>*/}
+                <li><Button onClick={ async () => {
+                    dispatch(fetchProducts({params: {"category": "Печенье"}}))
+                }}>{t('Печенье')}</Button></li>
+                {/*<li><Button>{t('Пироги')}</Button></li>*/}
+                {/*<li><Button>{t('Пирожки')}</Button></li>*/}
+                {/*<li><Button>{t('Пицца')}</Button></li>*/}
+                {/*<li><Button>{t('Расстегаи')}</Button></li>*/}
+                {/*<li><Button>{t('Сдоба')}</Button></li>*/}
+                {/*<li><Button>{t('Слойки')}</Button></li>*/}
+                {/*<li><Button>{t('Хлеб')}</Button></li>*/}
+                {/*<li><Button>{t('Кондитерская')}</Button></li>*/}
             </ul>
         </div>
     )
